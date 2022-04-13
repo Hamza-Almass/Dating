@@ -1,0 +1,69 @@
+
+<form [formGroup]="registerForm" class="rtl" (ngSubmit)="register()">
+  <h4 style="font-weight:bold;font-family:'JF-Flat';" class="text-center text-dark">شريكك في الحياة بإنتظارك</h4>
+  <hr>
+
+  <div class="form-group">
+    <label for="male">رجل</label>
+    <input type="radio" class="" id="male" formControlName="gender" value="رجل">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <label for="female">امرأة</label>
+    <input type="radio" class="" id="female" formControlName="gender" value="امرأة">
+  </div>
+
+  <div class="form-group">
+    <input formControlName="username" type="text"
+    [ngClass]="{'is-invalid':registerForm.get('username')?.hasError('required') && registerForm.get('username')?.touched}" 
+     class="form-control" placeholder="إسم المشترك">
+     <div class="invalid-feedback">يرجى ادخال اسم المشترك </div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="knownAs" placeholder ="اسم الشهرة" 
+    [ngClass]="{'is-invalid':registerForm.get('knownAs')?.hasError('required') && registerForm.get('knownAs')?.touched}">
+    <div class="invalid-feedback" *ngIf="registerForm.get('knownAs')?.hasError('required')">اسم الشهرة مطلوب</div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" bsDatepicker  #dp="bsDatepicker" [bsConfig]="bsConfigDP" formControlName="dateOfBirth" placeholder ="تاريخ الميلاد" 
+    [ngClass]="{'is-invalid':registerForm.get('dateOfBirth')?.hasError('required') && registerForm.get('dateOfBirth')?.touched}">
+    <div class="invalid-feedback" *ngIf="registerForm.get('dateOfBirth')?.hasError('required')">تاريخ الميلاد مطلوب</div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="city" placeholder ="المدينة" 
+    [ngClass]="{'is-invalid':registerForm.get('city')?.hasError('required') && registerForm.get('city')?.touched}">
+    <div class="invalid-feedback" *ngIf="registerForm.get('city')?.hasError('required')">المدينة مطلوبة</div>
+  </div>
+
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="country" placeholder ="البلد" 
+    [ngClass]="{'is-invalid':registerForm.get('country')?.hasError('required') && registerForm.get('country')?.touched}">
+    <div class="invalid-feedback" *ngIf="registerForm.get('country')?.hasError('required')">البلد مطلوب</div>
+  </div>
+
+  <div class="form-group">
+    <input formControlName="password" type="password"
+     [ngClass]="{'is-invalid':registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched
+      || registerForm.get('password')?.hasError('minlength') || registerForm.get('password')?.hasError('maxlength')}"
+    class="form-control"  placeholder="كلمة السر">
+    <div class="invalid-feedback" *ngIf="registerForm.get('password')?.hasError('required')">يرجى ادخال كلمة السر</div>
+    <div class="invalid-feedback" *ngIf="registerForm.get('password')?.hasError('minlength')">كلمة السر يجب ان لا تقل عن اربعة خانات</div>
+    <div class="invalid-feedback" *ngIf="registerForm.get('password')?.hasError('maxlength')">كلمة السر يجب ان لا تكون اكثر من ٨ خانات</div>
+  </div>
+
+  <div class="form-group"> 
+    <input formControlName="confirmPassword" type="password" 
+    [ngClass]="{'is-invalid':registerForm.get('confirmPassword')?.touched && registerForm.get('confirmPassword')?.hasError('required') || 
+     registerForm.get('confirmPassword')?.hasError('mismatch') && registerForm.get('confirmPassword')?.touched}"
+    class="form-control"  placeholder="ادخل كلمة السر مرة اخرى">
+    <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword')?.hasError('required')">يرجى ادخال كلمة السر مرة اخرى</div>
+    <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword')?.hasError('mismatch')">كلمة السر غير متطابقة</div>
+  </div>
+
+  <div class="form-group text-center">
+    <button  style="font-weight:bold;font-family:'JF-Flat';" class="btn btn-secondary btn-lg" type="submit" [disabled]="!registerForm.valid">إشتراك</button>
+    <button  style="font-weight:bold;font-family:'JF-Flat';" class="btn btn-secondary btn-lg ml-2" type="button" (click) = "cancelRegister()">ليس الأن</button>
+  </div>
+
+</form> 
+

@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-v4-rtl/dist/css/bootstrap-rtl.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+@import "~alertifyjs/build/css/alertify.min.css";
+@import "~alertifyjs/build/css/themes/bootstrap.min.css";
+@import "~bootswatch/dist/Sketchy/bootstrap.min.css";
+
+@font-face {font-family: "JF-Flat"; src: url("./assets/fonts/JF-Flat-Regular.ttf");}
+@font-face {font-family: "Droid-Arabic-Kufi-1";src: url("./assets/fonts/Droid-Arabic-Kufi-1.ttf");}
+@font-face {font-family: "18410-ah-naskh-hadith";src: url("./assets/fonts/18410-ah-naskh-hadith.ttf");}
+@font-face {font-family: "Droid-Arabic-Kufi";src: url("./assets/fonts/Droid-Arabic-Kufi.ttf");}
+@font-face {font-family: "Droid-Sans-Arabic";src: url("./assets/fonts/Droid-Sans-Arabic.ttf");}
+@font-face {font-family: "ToyorAljanah-Regular";src: url("./assets/fonts/ToyorAljanah-Regular.otf");}
+
+.my-btn {
+  background-color: black;
+  color: white;
+  border-radius: 12px;
+  width: 100px;
+}
+
+.selectedBtn {
+  background-color: lightseagreen;
+}
+.tab-panel {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    
+  }
+  
+  .nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
+    border-bottom: 4px solid #fbcdcf;
+  }
+  
+  .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
+    border: 0;
+    background: none !important;
+    color: #333333;
+  }
+  
+  .member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
+    color: #a6a6a6;
+  }
+  
+  .member-tabset > .nav-tabs > li.open .dropdown-menu, .member-tabset > .nav-tabs > li:hover .dropdown-menu {
+    margin-top: 0px;
+  }
+  
+  .member-tabset > .nav-tabs > li.active {
+    border-bottom: 4px solid #E95420;
+    position: relative;
+  }
+  .card-header{
+    border-bottom: 4px solid #E95420;
+    background-color: #333 !important;
+    color:#fff;
+  }
+  
+  .member-tabset > .nav-tabs > li.active > a {
+    border: 0 !important;
+    color: #333333;
+    
+  }
+  
+  .member-tabset > .nav-tabs > li.active > a > i {
+    color: #404040;
+  }
+  
+  .member-tabset > .tab-content {
+    margin-top: -3px;
+    background-color: #fff;
+    border: 0;
+    border-top: 1px solid #eee;
+    padding: 15px 0;
+  }
+  .member-tabset > .nav-tabs{
+    font-weight:bolder;
+    font-family:'JF Flat';
+    font-size:1.1rem;
+  }

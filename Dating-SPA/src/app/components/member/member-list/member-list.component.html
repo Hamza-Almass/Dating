@@ -1,0 +1,64 @@
+
+<div class="container d-flex justify-content-center mb-3">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3 style="font-family:JF-Flat;">عدد المتسخدمين: {{pagination.totalItems}}</h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <form class="form-inline" [formGroup]="filterForm" (ngSubmit)="loadUsers()">
+
+          <div class="form-group">
+            <label for="minAge">Min Age</label>
+            <input type="number" class="form-control ml-2" id="minAge"  formControlName="minAge">
+          </div>
+        
+
+        <div class="form-group ml-2 mr-2">
+          <label for="maxAge">Max Age</label>
+          <input type="number" class="form-control ml-2" id="maxAge"  formControlName="maxAge">
+        </div>
+
+        <div class="form-group ml-2 mr-2">
+          <label for="gender">Gender</label>
+            <select class="form-control" id="gender" formControlName="gender">
+              <option *ngFor="let gender of listOfGenders" [value]="gender.type">{{gender.displayName}}</option>
+            </select>
+        </div>
+       <div class="divider"></div>
+        <div class="form-group ml-2 mr-2" style="border-radius: 4px;padding: 6px;">
+          <label for="order ml-2">Order By :</label>
+          <ul class="list-inline ml-2 mt-3">
+            <li class="list-inline-item mr-4">Created At<input type="radio" formControlName="order" value="createdAt"></li>
+            <li class="list-inline-item mr-4">Last Active<input type="radio" formControlName="order" value="lastActive"></li>
+          </ul>
+        </div>
+       
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary ml-2">Search</button>
+            <button class="btn btn-primary ml-2" type="button" (click)="resetFilter()">Reset</button>
+          </div>
+
+    </form>
+
+  </div>
+</div>
+
+<div class="rtl container mt-3">
+  <div class="row">
+    <div *ngFor="let user of users"  class="col-lg-2 col-md-3 col-sm-6">
+        <app-card [user] = "user"></app-card>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex justify-content-center">
+  <pagination [boundaryLinks]="true" [totalItems]="pagination.totalItems" [itemsPerPage]="pagination.itemsPerPage"
+    [(ngModel)]="pagination.currentPage" (pageChanged)="pageChanged($event)" (numPages)="pagination.pageSize = $event"
+  previousText="السابق" nextText="التالي" firstText="الاول" lastText="الاخير">
+</pagination>
+</div>
+

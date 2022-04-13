@@ -1,0 +1,17 @@
+<div  class="rtl container mt-5">
+  <div style="text-align: center" *ngIf="!registerMode">
+    <h2 style="font-family:'JF-FLAT'">موقع تعارف</h2>
+   
+    <div class="text-center" >
+      <button  style="font-family:'JF-FLAT'" class="btn btn-secondary btn-lg mb-4 mt-4" (click)="toggleToRegister()">إشترك معنا</button>
+       </div>
+  </div>
+
+  <div class="container" *ngIf="registerMode">
+    <div class="row justify-content-center">
+      <div class="col-4">
+        <app-register (cancelRegisterEvent)="cancelRegister($event)"></app-register>
+      </div>
+    </div>
+  </div>
+</div>
